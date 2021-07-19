@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Prosfores.Models.Offer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>ΛΙΣΤΑ ΠΡΟΣΦΟΡΩΝ</h4>
+<hr />
+<p>
+    <a class="btn btn-info" asp-action="Create">Δημιουργία</a>
+</p>
+<table class="table table-bordered table-responsive-sm table-sm text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.Label("ΕΤΑΙΡΙΑ")
+            </th>
+            <th>
+                @Html.Label("ΑΡΧΕΙΟ")
+            </th>
+            <th>
+                @Html.Label("ΑΝΟΙΚΤΗ")
+            </th>
+            <th>
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
+            </th>
+            <th>
+                @Html.Label("ΕΝΗΜΕΡΩΘΗΚΕ")
+            </th>
+
+            <th>
+                @Html.Label("ΧΡΗΣΤΗΣ")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenClose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.offerUser.UserName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

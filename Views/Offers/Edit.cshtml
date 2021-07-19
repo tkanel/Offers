@@ -1,0 +1,64 @@
+﻿@model Prosfores.Models.Offer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Επεξεργασία προφοράς</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label  class="control-label">Ονομα αρχείου</label>
+                <input asp-for="FileName" class="form-control" />
+                <span asp-validation-for="FileName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+
+                <input class="form-check-input" asp-for="OpenClose"  id="flexCheckChecked"/>
+                <label class="form-check-label" for="flexCheckChecked">
+                    Ανοικτή?
+                </label>
+
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label">Σημειώσεις</label>
+                <textarea asp-for="Notes" class="form-control"></textarea>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Ημερομηνία τελευταίας τροποποίησης</label>
+                <input asp-for="LastUpdate" class="form-control" />
+                <span asp-validation-for="LastUpdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Εταιρία</label>
+                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
+                <span asp-validation-for="CompanyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Χρήστης</label>
+                <select asp-for="offerUserId" class="form-control" asp-items="ViewBag.offerUserId"></select>
+                <span asp-validation-for="offerUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

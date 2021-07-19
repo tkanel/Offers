@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Prosfores.Models.Offer>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h4>ΨΑΞΙΜΟ ΠΡΟΣΦΟΡΩΝ</h4>
+<hr />
+<form>
+    <div>
+        <p>Ψάξε τις προσφορές για <input type="text" /></p>
+        <p>Aνά :</p>
+        <p>
+            [<input type="radio" id="Customer" name="search" value="Customer" /> <label for="Customer"> ΠΕΛΑΤΕΣ</label>] [<input type="radio" id="AFM" name="search" value="AFM" /><label for="AFM"> ΑΦΜ</label>] [
+            <input type="radio" id="Open" name="search" value="Open" /><label for="Open"> ΑΝΟΙΧΤΕΣ ΜΟΝΟ</label>] [<input type="radio" id="Company" name="search" value="Company" /><label for="Company"> ΕΤΑΙΡΙΑ</label>] [
+            <input type="radio" id="Creator" name="search" value="Creator" /><label for="Creator"> ΧΡΗΣΤΗΣ ΔΗΜΙΟΥΡΓΙΑΣ</label>]
+        </p>
+        <p><input class="btn btn-info" type="submit" value="Submit"></p>
+    </div>
+    <p>**οι τελευταίες 100 προσφορές</p>
+</form>
+
+<table class="table table-bordered table-responsive-sm table-sm text-center">
+    <thead class="thead-dark">
+        <tr>
+
+            
+            <th>
+                @Html.Label("ΑΡΧΕΙΟ")
+            </th>
+            <th>
+                @Html.Label("ΑΝΟΙΚΤΗ")
+            </th>
+            <th>
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
+            </th>
+            <th>
+                @Html.Label("ΕΝΗΜΕΡΩΘΗΚΕ")
+            </th>
+            <th>
+                @Html.Label("ΕΤΑΙΡΙΑ")
+            </th>
+            <th>
+                @Html.Label("ΧΡΗΣΤΗΣ")
+            </th>
+            <th></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpenClose)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastUpdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offerUser.UserName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
