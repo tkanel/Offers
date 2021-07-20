@@ -10,22 +10,22 @@ using Offers.Models;
 
 namespace Offers.Controllers
 {
-    public class offerUsersController : Controller
+    public class YearsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public offerUsersController(ApplicationDbContext context)
+        public YearsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: offerUsers
+        // GET: Years
         public async Task<IActionResult> Index()
         {
-            return View(await _context.offerUsers.ToListAsync());
+            return View(await _context.Years.ToListAsync());
         }
 
-        // GET: offerUsers/Details/5
+        // GET: Years/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Offers.Controllers
                 return NotFound();
             }
 
-            var offerUser = await _context.offerUsers
+            var year = await _context.Years
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (offerUser == null)
+            if (year == null)
             {
                 return NotFound();
             }
 
-            return View(offerUser);
+            return View(year);
         }
 
-        // GET: offerUsers/Create
+        // GET: Years/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: offerUsers/Create
+        // POST: Years/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Notes")] offerUser offerUser)
+        public async Task<IActionResult> Create([Bind("Id,YearSelected")] Year year)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(offerUser);
+                _context.Add(year);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(offerUser);
+            return View(year);
         }
 
-        // GET: offerUsers/Edit/5
+        // GET: Years/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Offers.Controllers
                 return NotFound();
             }
 
-            var offerUser = await _context.offerUsers.FindAsync(id);
-            if (offerUser == null)
+            var year = await _context.Years.FindAsync(id);
+            if (year == null)
             {
                 return NotFound();
             }
-            return View(offerUser);
+            return View(year);
         }
 
-        // POST: offerUsers/Edit/5
+        // POST: Years/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Notes")] offerUser offerUser)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,YearSelected")] Year year)
         {
-            if (id != offerUser.Id)
+            if (id != year.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Offers.Controllers
             {
                 try
                 {
-                    _context.Update(offerUser);
+                    _context.Update(year);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!offerUserExists(offerUser.Id))
+                    if (!YearExists(year.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Offers.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(offerUser);
+            return View(year);
         }
 
-        // GET: offerUsers/Delete/5
+        // GET: Years/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Offers.Controllers
                 return NotFound();
             }
 
-            var offerUser = await _context.offerUsers
+            var year = await _context.Years
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (offerUser == null)
+            if (year == null)
             {
                 return NotFound();
             }
 
-            return View(offerUser);
+            return View(year);
         }
 
-        // POST: offerUsers/Delete/5
+        // POST: Years/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var offerUser = await _context.offerUsers.FindAsync(id);
-            _context.offerUsers.Remove(offerUser);
+            var year = await _context.Years.FindAsync(id);
+            _context.Years.Remove(year);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool offerUserExists(int id)
+        private bool YearExists(int id)
         {
-            return _context.offerUsers.Any(e => e.Id == id);
+            return _context.Years.Any(e => e.Id == id);
         }
     }
 }

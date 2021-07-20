@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Offers.Models
 {
-    public class offerUser
+    public class Year
     {
+
         public int Id { get; set; }
 
         [Required]
-        public string UserName { get; set; }
+        public string YearSelected { get; set; }
 
-
-        [DataType(DataType.MultilineText)]
-        public string Notes { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Offers.Models.offerUser
+﻿@model Offers.Models.Year
 
 @{
     ViewData["Title"] = "Create";
@@ -6,21 +6,16 @@
 
 <h1>Create</h1>
 
-<h4>offerUser</h4>
+<h4>Year</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <textarea asp-for="Notes" class="form-control"></textarea>
-                <span asp-validation-for="Notes" class="text-danger"></span>
+                <label asp-for="YearSelected" class="control-label"></label>
+                <input asp-for="YearSelected" class="form-control" />
+                <span asp-validation-for="YearSelected" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

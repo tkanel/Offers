@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Offers.Data;
-using Prosfores.Models;
+using Offers.Models;
 
 namespace Offers.Controllers
 {

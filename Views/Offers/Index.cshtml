@@ -1,35 +1,37 @@
-﻿@model IEnumerable<Prosfores.Models.Offer>
+﻿@model IEnumerable<Offers.Models.Offer>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h4>ΛΙΣΤΑ ΠΡΟΣΦΟΡΩΝ</h4>
-<hr />
+<h1>Index</h1>
+
 <p>
-    <a class="btn btn-info" asp-action="Create">Δημιουργία</a>
+    <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-bordered table-responsive-sm table-sm text-center">
-    <thead class="thead-dark">
+<table class="table">
+    <thead>
         <tr>
             <th>
-                @Html.Label("ΕΤΑΙΡΙΑ")
+                @Html.DisplayNameFor(model => model.FileName)
             </th>
             <th>
-                @Html.Label("ΑΡΧΕΙΟ")
+                @Html.DisplayNameFor(model => model.OpenClose)
             </th>
             <th>
-                @Html.Label("ΑΝΟΙΚΤΗ")
+                @Html.DisplayNameFor(model => model.Notes)
             </th>
             <th>
-                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
+                @Html.DisplayNameFor(model => model.LastUpdate)
             </th>
             <th>
-                @Html.Label("ΕΝΗΜΕΡΩΘΗΚΕ")
+                @Html.DisplayNameFor(model => model.Company)
             </th>
-
             <th>
-                @Html.Label("ΧΡΗΣΤΗΣ")
+                @Html.DisplayNameFor(model => model.ΟfferUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
             </th>
             <th></th>
         </tr>
@@ -37,9 +39,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Company.CompanyName)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FileName)
             </td>
@@ -52,9 +51,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastUpdate)
             </td>
-
             <td>
-                @Html.DisplayFor(modelItem => item.offerUser.UserName)
+                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ΟfferUser.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year.YearSelected)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
