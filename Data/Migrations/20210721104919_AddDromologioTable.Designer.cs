@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Offers.Data;
 
 namespace Offers.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210721104919_AddDromologioTable")]
+    partial class AddDromologioTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -279,13 +281,7 @@ namespace Offers.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AdditionalFileName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DromologioId")
                         .HasColumnType("int");
 
                     b.Property<string>("FileName")
@@ -310,8 +306,6 @@ namespace Offers.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
-
-                    b.HasIndex("DromologioId");
 
                     b.HasIndex("YearId");
 
@@ -414,12 +408,6 @@ namespace Offers.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Offers.Models.Dromologio", "Dromologio")
-                        .WithMany()
-                        .HasForeignKey("DromologioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Offers.Models.Year", "Year")
                         .WithMany()
                         .HasForeignKey("YearId")
@@ -435,8 +423,6 @@ namespace Offers.Data.Migrations
                     b.Navigation("ΟfferUser");
 
                     b.Navigation("Company");
-
-                    b.Navigation("Dromologio");
 
                     b.Navigation("Year");
                 });

@@ -20,6 +20,8 @@ namespace Offers.Data
         public DbSet<ΟfferUser> OfferUsers { get; set; }
         public DbSet<Year> Years { get; set; }
 
+        public DbSet<Dromologio> Dromologia { get; set; }
+
 
     }
 }

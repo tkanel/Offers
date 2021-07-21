@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Offers.Models.ΟfferUser>
+﻿@model IEnumerable<Offers.Models.Dromologio>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h4>Λίστα δρομολογίων</h4>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
@@ -25,7 +25,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Notes)

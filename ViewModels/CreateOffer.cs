@@ -18,13 +18,14 @@ namespace Offers.ViewModels
 
         [Required]
         public IFormFile FileName { get; set; }
+        public IFormFile AdditionalFileName { get; set; }
         public bool OpenClose { get; set; }
 
 
         [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
 
-        public DateTime? LastUpdate { get; set; }
+        public DateTime? LastUpdate { get; set; } 
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
@@ -36,6 +37,8 @@ namespace Offers.ViewModels
         public int YearId { get; set; }
         public Year Year { get; set; }
 
+        public int DromologioId { get; set; }
+        public Dromologio Dromologio { get; set; }
 
     }
 }

@@ -2358,4 +2358,11 @@ C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Offers.dll
 C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\ref\Offers.dll
 C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Offers.pdb
 C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Offers.genruntimeconfig.cache
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Shared\_tableButtons.cshtml.g.cs
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Offers\BuildAnOffer.cshtml.g.cs
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Create.cshtml.g.cs
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Delete.cshtml.g.cs
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Details.cshtml.g.cs
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Edit.cshtml.g.cs
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Index.cshtml.g.cs
 C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Offers.csproj.AssemblyReference.cache
