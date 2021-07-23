@@ -193,9 +193,6 @@ namespace Offers.Controllers
 
 
 
-
-
-
         //GET SEARCH
         [HttpGet]
         public async Task<IActionResult> Search()
