@@ -15,7 +15,7 @@ namespace Offers.ViewModels
 
 
 
-
+        [Required]
         public string FileName { get; set; }
         public IFormFile AdditionalFileName { get; set; }
         public bool OpenClose { get; set; }
@@ -23,6 +23,7 @@ namespace Offers.ViewModels
 
         [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
+        public string ContactPerson { get; set; }
 
         public DateTime? LastUpdate { get; set; }
 

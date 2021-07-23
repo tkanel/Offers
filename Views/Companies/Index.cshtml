@@ -16,19 +16,50 @@
             <th>
                 @Html.Label("ΕΤΑΙΡΙΑ")
             </th>
+            <th>
+                @Html.Label("ΑΦΜ")
+            </th>
+            <th>
+                @Html.Label("ΤΗΛΕΦΩΝΟ")
+            </th>
+            <th>
+                @Html.Label("ΔΙΕΥΘΥΝΣΗ")
+            </th>
+            <th>
+                @Html.Label("EMAIL")
+            </th>
+            <th>
+                @Html.Label("ΣΗΜΕΙΩΣΕΙΣ")
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
-            </td>
-            <td>
-                <partial name="_tableButtons" model="item" />
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AFM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    <partial name="_tableButtons" model="item" />
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

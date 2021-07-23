@@ -16,7 +16,7 @@ namespace Offers.Models
         public string CompanyName { get; set; }
 
 
-        [StringLength(20)]
+        [StringLength(10)]
         public string AFM { get; set; }
 
         [StringLength(20)]
