@@ -1,4 +1,4 @@
-﻿@model Prosfores.Models.Offer
+﻿@model Offers.Models.Offer
 
 @{
     ViewData["Title"] = "Details";
@@ -10,7 +10,6 @@
     <h4>Offer</h4>
     <hr />
     <dl class="row">
-       
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FileName)
         </dt>
@@ -42,10 +41,16 @@
             @Html.DisplayFor(model => model.Company.CompanyName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.offerUser)
+            @Html.DisplayNameFor(model => model.ΟfferUser)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.offerUser.UserName)
+            @Html.DisplayFor(model => model.ΟfferUser.UserName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year.YearSelected)
         </dd>
     </dl>
 </div>

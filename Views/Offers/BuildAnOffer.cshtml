@@ -1,0 +1,151 @@
+﻿@model Offers.ViewModels.BuildAnOffer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 class="btn btn-outline-primary">Χτίσιμο νέας προσφοράς</h4>
+<h5 style="color:red;">@ViewBag.FileExists</h5>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="BuildAnOffer" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Επιλέξτε εταιρία</label>
+                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OpenClose" /> Ανοικτή?
+                </label>
+            </div>
+            <hr />
+            @*//Φορτώσεις*@
+            <div class="form-group form-check">
+                <label class="control-label"><b>Τρόποι χρέωσης φόρτωσης :</b></label>
+
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="meter">
+                    <label class="form-check-label" for="meter">
+                        Μέτρο
+                    </label>
+                </div>
+
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="kilo">
+                    <label class="form-check-label" for="kilo">
+                        Κιλό
+                    </label>
+                </div>
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="package">
+                    <label class="form-check-label" for="package">
+                        Κιβώτιο
+                    </label>
+                </div>
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="pallet">
+                    <label class="form-check-label" for="pallet">
+                        Παλλέτα
+                    </label>
+                </div>
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="ful">
+                    <label class="form-check-label" for="full">
+                        Κομπλέ φορτίο
+                    </label>
+                </div>
+
+            </div>
+            <hr />
+
+            @*//ΑΠΟΘΗΚΕΥΣΗ*@
+            <div class="form-group form-check">
+                <label class="control-label"><b>Τύπος φορτίου :</b></label>
+
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="dry">
+                    <label class="form-check-label" for="dry">
+                        Ξηρό
+                    </label>
+                </div>
+
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="frozen">
+                    <label class="form-check-label" for="frozen">
+                        Κατάψυξη
+                    </label>
+                </div>
+
+                <div>
+                    <input class="form-check-input" type="checkbox" value="" id="syntirisi">
+                    <label class="form-check-label" for="sintirisi">
+                        Συντήρηση
+                    </label>
+                </div>
+
+
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="control-label">Στοιχεία επαφής</label>
+                <input asp-for="ContactPerson" class="form-control" />
+                <span asp-validation-for="ContactPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Σημειώσεις</label>
+                <textarea asp-for="Notes" class="form-control"></textarea>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="control-label">Επιλέξτε ημερομηνία τελευταίας ενημέρωσης</label>
+                <input asp-for="LastUpdate" class="form-control" />
+                <span asp-validation-for="LastUpdate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Επιλέξτε χρήστη</label>
+                <select asp-for="ΟfferUserId" class="form-control" asp-items="ViewBag.ΟfferUserId"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Επιλέξτε έτος</label>
+                <select asp-for="YearId" class="form-control" asp-items="ViewBag.YearId"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Επιλέξτε δρομολόγιο</label>
+                <select asp-for="DromologioId" class="form-control" asp-items="ViewBag.DromologioId"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Δώστε επιθυμητό όνομα αρχείου</label>
+                <input asp-for="FileName" class="form-control" />
+                <span asp-validation-for="FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Επιλέξτε αν υπάρχει συνοδευτικό αρχείο της προσφοράς</label>
+                <input asp-for="AdditionalFileName" class="form-control" />
+                <span asp-validation-for="AdditionalFileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

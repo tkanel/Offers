@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Offers.Models.Year>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.YearSelected)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearSelected)
+            </td>
+            <td>
+                <partial name="_tableButtons" model="item" />
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

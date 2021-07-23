@@ -16,7 +16,7 @@ namespace Offers.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -219,26 +219,7 @@ namespace Offers.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Offers.Models.offerUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("offerUsers");
-                });
-
-            modelBuilder.Entity("Prosfores.Models.Company", b =>
+            modelBuilder.Entity("Offers.Models.Company", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -272,14 +253,39 @@ namespace Offers.Data.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("Prosfores.Models.Offer", b =>
+            modelBuilder.Entity("Offers.Models.Dromologio", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Dromologia");
+                });
+
+            modelBuilder.Entity("Offers.Models.Offer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AdditionalFileName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DromologioId")
                         .HasColumnType("int");
 
                     b.Property<string>("FileName")
@@ -295,16 +301,58 @@ namespace Offers.Data.Migrations
                     b.Property<bool>("OpenClose")
                         .HasColumnType("bit");
 
-                    b.Property<int>("offerUserId")
+                    b.Property<int>("YearId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ΟfferUserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
 
-                    b.HasIndex("offerUserId");
+                    b.HasIndex("DromologioId");
+
+                    b.HasIndex("YearId");
+
+                    b.HasIndex("ΟfferUserId");
 
                     b.ToTable("Offers");
+                });
+
+            modelBuilder.Entity("Offers.Models.Year", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("YearSelected")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Years");
+                });
+
+            modelBuilder.Entity("Offers.Models.ΟfferUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OfferUsers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -358,23 +406,39 @@ namespace Offers.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Prosfores.Models.Offer", b =>
+            modelBuilder.Entity("Offers.Models.Offer", b =>
                 {
-                    b.HasOne("Prosfores.Models.Company", "Company")
+                    b.HasOne("Offers.Models.Company", "Company")
                         .WithMany()
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Offers.Models.offerUser", "offerUser")
+                    b.HasOne("Offers.Models.Dromologio", "Dromologio")
                         .WithMany()
-                        .HasForeignKey("offerUserId")
+                        .HasForeignKey("DromologioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Offers.Models.Year", "Year")
+                        .WithMany()
+                        .HasForeignKey("YearId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Offers.Models.ΟfferUser", "ΟfferUser")
+                        .WithMany()
+                        .HasForeignKey("ΟfferUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ΟfferUser");
+
                     b.Navigation("Company");
 
-                    b.Navigation("offerUser");
+                    b.Navigation("Dromologio");
+
+                    b.Navigation("Year");
                 });
 #pragma warning restore 612, 618
         }

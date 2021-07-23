@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Prosfores.Models
+namespace Offers.Models
 {
     public class Company
     {
@@ -16,7 +16,7 @@ namespace Prosfores.Models
         public string CompanyName { get; set; }
 
 
-        [StringLength(20)]
+        [StringLength(10)]
         public string AFM { get; set; }
 
         [StringLength(20)]

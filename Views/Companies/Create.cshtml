@@ -1,4 +1,4 @@
-﻿@model Prosfores.Models.Company
+﻿@model Offers.Models.Company
 
 @{
     ViewData["Title"] = "Create";
@@ -14,6 +14,31 @@
             <div class="form-group">
                 <label asp-for="CompanyName" class="control-label">ΕΤΑΙΡΙΑ</label>
                 <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AFM" class="control-label">ΑΦΜ</label>
+                <input asp-for="AFM" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">ΤΗΛΕΦΩΝΟ</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">ΔΙΕΥΘΥΝΣΗ</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">EMAIL</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label">ΣΗΜΕΙΩΣΕΙΣ</label>
+                <textarea asp-for="Notes" class="form-control"></textarea>
                 <span asp-validation-for="CompanyName" class="text-danger"></span>
             </div>
             <div class="form-group">
