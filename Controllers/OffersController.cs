@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,10 +6,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using Offers.Data;
 using Offers.Models;
 using Offers.ViewModels;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+
+
 
 
 namespace Offers.Controllers
@@ -58,6 +61,8 @@ namespace Offers.Controllers
 
                 if (offer.FileName != null)
                 {
+
+                    string htmlFileName= Path.Combine(_hostEnvironment.WebRootPath, "Html" + "\\" + "text.html");
                     //copy file to Attachments folder
                     string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "Files" + "\\" + folderName);
                     uniqueFileName = offer.FileName;
@@ -69,7 +74,22 @@ namespace Offers.Controllers
                     if (!ifExists)
                     {
 
-                        //CREATE A PDF
+                        //CREATE A DOC
+
+                        //Insert Logo
+                        string logoPicture = Path.Combine(_hostEnvironment.WebRootPath, "img" + "\\" + "Logo.jpg");
+
+                        //Insert TUV cert
+                        string tuvPicture = Path.Combine(_hostEnvironment.WebRootPath, "img" + "\\" + "TUV.jpg");
+
+
+                        //Main Document
+                        CreateAWordDocument.CreateWordDocument(filePath, logoPicture, tuvPicture,htmlFileName);
+
+
+
+
+                        //END OF DOC
 
                     }
                     else
@@ -169,6 +189,10 @@ namespace Offers.Controllers
             return View(offer);
 
         }
+
+
+
+
 
 
 
