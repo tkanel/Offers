@@ -2368,3 +2368,4 @@ C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Inde
 C:\Users\Thodoris\source\Git\Offers\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
 C:\Users\Thodoris\source\Git\Offers\bin\Debug\net5.0\System.IO.Packaging.dll
 C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Offers.csproj.AssemblyReference.cache
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Home\ReadAllFilesFromDirectory.cshtml.g.cs

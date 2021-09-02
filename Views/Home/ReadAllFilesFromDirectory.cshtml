@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Offers.Models.FileName>
+
+@{
+    ViewData["Title"] = "ReadAllFilesFromDirectory";
+
+}
+<h1>Existing Files</h1>
+
+<div class="form-group">
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <strong>File Name</strong>
+                </th>
+                <th>Inserted</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Filename)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelitem => item.isInserted) 
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <hr />
+
+    <h1>Import Files</h1>
+    @{
+        var files = ViewBag.FileName;
+
+    }
+
+    <form asp-controller="Home" asp-action="ReadAllFilesFromDirectory" method="post">
+
+        <div class="form-group">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <strong>File Name</strong>
+                        </th>
+                        <th>To be Insert?</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var fileName in files)
+                    {
+                        <tr>
+                            <td>
+                                <span class="form-control">@fileName</span>
+                            </td>
+                            <td>
+
+                                <input type="checkbox" checked="checked" class="form-check" />
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+            <div class="form-group">
+                <input type="submit" value="Import Files to Database" class="btn btn-danger form-control" />
+            </div>
+
+
+
+        </div>
+
+
+
+    </form>
+
+    @section scripts {
+
+        <script>
+            $(document).ready(function () {
+
+            });
+        </script>
+    }
+
