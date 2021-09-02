@@ -64,7 +64,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-color: floralwhite;
-    font-family:Calibri;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer {
