@@ -7949,23 +7949,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tkane\\.nuget\\packages\\": {},
+    "C:\\Users\\Thodoris\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tkane\\source\\Git\\Offers\\Offers.csproj",
+      "projectUniqueName": "C:\\Users\\Thodoris\\source\\Git\\Offers\\Offers.csproj",
       "projectName": "Offers",
-      "projectPath": "C:\\Users\\tkane\\source\\Git\\Offers\\Offers.csproj",
-      "packagesPath": "C:\\Users\\tkane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tkane\\source\\Git\\Offers\\obj\\",
+      "projectPath": "C:\\Users\\Thodoris\\source\\Git\\Offers\\Offers.csproj",
+      "packagesPath": "C:\\Users\\Thodoris\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Thodoris\\source\\Git\\Offers\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tkane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Thodoris\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -22,6 +22,10 @@ namespace Offers.Data
 
         public DbSet<Dromologio> Dromologia { get; set; }
 
+        public DbSet<Offers.Models.FileName> FileName { get; set; }
+
+        public DbSet<FileName> FileNames { get; set; }
+
 
     }
 }
