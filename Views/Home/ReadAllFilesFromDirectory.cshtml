@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Offers.Models.FileName>
+@*@model List<string>*@
 
 @{
     ViewData["Title"] = "ReadAllFilesFromDirectory";
@@ -27,7 +28,7 @@
                     </td>
                     <td>
 
-                        @Html.DisplayFor(modelitem => item.isInserted) 
+                        @Html.DisplayFor(modelitem => item.isInserted)
 
                     </td>
 
@@ -38,63 +39,66 @@
 
     <hr />
 
-    <h1>Import Files</h1>
-    @{
-        var files = ViewBag.FileName;
 
-    }
+<h1>Import Files</h1>
+@{
+    var files = ViewBag.FileName;
 
-    <form asp-controller="Home" asp-action="ReadAllFilesFromDirectory" method="post">
+}
+<form asp-controller="Home" asp-action="ReadAllFilesFromDirectory" method="post">
 
-        <div class="form-group">
+    <div class="form-group">
 
-            <table class="table table-bordered table-striped">
-                <thead>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <strong>File Name</strong>
+                    </th>
+                    <th>To be Insert?</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (var i = 0; i < files.Count; i++)
+                {
                     <tr>
-                        <th>
-                            <strong>File Name</strong>
-                        </th>
-                        <th>To be Insert?</th>
+                        <td>
+
+                            <input name="files" type="text" value=@files[i] readonly />
+                            
+                        </td>
+                        <td>
+
+                            <input type="checkbox" checked="checked" class="form-check" />
+
+                        </td>
 
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var fileName in files)
-                    {
-                        <tr>
-                            <td>
-                                <span class="form-control">@fileName</span>
-                            </td>
-                            <td>
-
-                                <input type="checkbox" checked="checked" class="form-check" />
-
-                            </td>
-
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                }
+            </tbody>
+        </table>
 
 
-            <div class="form-group">
-                <input type="submit" value="Import Files to Database" class="btn btn-danger form-control" />
-            </div>
-
-
-
+        <div class="form-group">
+            <input type="submit" value="Import Files to Database" class="btn btn-danger form-control" />
         </div>
 
 
 
-    </form>
+    </div>
 
-    @section scripts {
 
-        <script>
-            $(document).ready(function () {
 
-            });
-        </script>
-    }
+</form>
+
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+}
 

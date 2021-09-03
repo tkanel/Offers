@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using Offers.Data;
 using Offers.Models;
+using Offers.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -37,6 +40,9 @@ namespace Offers.Controllers
         [HttpGet]
         public IActionResult ReadAllFilesFromDirectory()
         {
+
+
+
             List<string> fileName = new List<string>();
             string sourceDirectory = @"C:\Users\Thodoris\Downloads";
 
@@ -52,31 +58,42 @@ namespace Offers.Controllers
             }
             ViewBag.FileName = fileName;
 
-            return View(_context.FileName);
+            return View(_context.FileNames);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ReadAllFilesFromDirectory(FileName file)
+        public async Task<IActionResult> ReadAllFilesFromDirectory(List<string> files)
         {
 
-            if (ModelState.IsValid)
+            for (var i = 0; i < files.Count; i++)
             {
 
-               // file.isInserted = true;
-                _context.Add(file);
-                    await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                FileName myUploadedFile = new FileName()
+                {
+
+                    Filename = files[i].ToString(),
+                    isInserted = true
+
+                };
 
 
-
+                _context.Add(myUploadedFile);
+                
+               
 
 
             }
-            return View(file);
+            await _context.SaveChangesAsync();
 
-                        
+
+
+            return RedirectToAction(nameof(Index));
+
+
+
         }
 
 
