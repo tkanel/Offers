@@ -10,7 +10,7 @@
     <a class="btn btn-info" asp-action="Create">Νέα προσφορά</a>
 </p>
 
-<table class="table  table-bordered  table-hover table-striped">
+<table class="table  table-bordered  table-hover table-striped table-responsive-sm">
     <thead class="table table-dark">
         <tr>
             <th>
@@ -68,6 +68,12 @@
 
 
                     }
+                    else
+                    {
+
+                        @Html.Label("no file uploaded")
+
+                    }
 
 
                 </td>
@@ -90,7 +96,7 @@
                     }
                     else
                     {
-                        @Html.Label("no extra file")
+                        @Html.Label("no extra file uploaded")
 
                     }
 

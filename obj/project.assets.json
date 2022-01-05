@@ -7949,23 +7949,39 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\AKHS\\.nuget\\packages\\": {},
+=======
     "C:\\Users\\Thodoris\\.nuget\\packages\\": {},
+>>>>>>> 62c7fc1ab53e7efd34a9f3b181a7139f5876fffa
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\AKHS\\source\\Git\\Offers\\Offers.csproj",
+      "projectName": "Offers",
+      "projectPath": "C:\\Users\\AKHS\\source\\Git\\Offers\\Offers.csproj",
+      "packagesPath": "C:\\Users\\AKHS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AKHS\\source\\Git\\Offers\\obj\\",
+=======
       "projectUniqueName": "C:\\Users\\Thodoris\\source\\Git\\Offers\\Offers.csproj",
       "projectName": "Offers",
       "projectPath": "C:\\Users\\Thodoris\\source\\Git\\Offers\\Offers.csproj",
       "packagesPath": "C:\\Users\\Thodoris\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Thodoris\\source\\Git\\Offers\\obj\\",
+>>>>>>> 62c7fc1ab53e7efd34a9f3b181a7139f5876fffa
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
+        "C:\\Users\\AKHS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
         "C:\\Users\\Thodoris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 62c7fc1ab53e7efd34a9f3b181a7139f5876fffa
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8053,7 +8069,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+>>>>>>> 62c7fc1ab53e7efd34a9f3b181a7139f5876fffa
       }
     }
   }

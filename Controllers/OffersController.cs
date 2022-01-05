@@ -62,7 +62,7 @@ namespace Offers.Controllers
                 if (offer.FileName != null)
                 {
 
-                    string htmlFileName= Path.Combine(_hostEnvironment.WebRootPath, "Html" + "\\" + "text.html");
+                    string htmlFileName = Path.Combine(_hostEnvironment.WebRootPath, "Html" + "\\" + "text.html");
                     //copy file to Attachments folder
                     string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "Files" + "\\" + folderName);
                     uniqueFileName = offer.FileName;
@@ -84,7 +84,7 @@ namespace Offers.Controllers
 
 
                         //Main Document
-                        CreateAWordDocument.CreateWordDocument(filePath, logoPicture, tuvPicture,htmlFileName);
+                        CreateAWordDocument.CreateWordDocument(filePath, logoPicture, tuvPicture, htmlFileName);
 
 
 
@@ -265,14 +265,26 @@ namespace Offers.Controllers
                 string uniqueFileName = null;
                 var db = _context.Years.FirstOrDefault(p => p.Id == offer.YearId);
                 var folderName = db.YearSelected;
+                string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "Files" + "\\" + folderName);
 
 
-                //Attachement
+                //Create Year folder if not exists
+                UploadFiles uploadFiles = new UploadFiles();
+                uploadFiles.CreateFolder(folderName,uploadsFolder);
+
+                //if (!Directory.Exists(uploadsFolder))
+                //{
+
+                //    Directory.CreateDirectory(uploadsFolder);
+
+                //}
+
+                //Feature Attachement
 
                 if (offer.FileName != null)
                 {
                     //copy file to Attachments folder
-                    string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "Files" + "\\" + folderName);
+                    
                     uniqueFileName =/* Guid.NewGuid().ToString() + "_" +*/ offer.FileName.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
@@ -281,8 +293,16 @@ namespace Offers.Controllers
 
                     if (!ifExists)
                     {
+                        try
+                        {
+                            offer.FileName.CopyTo(new FileStream(filePath, FileMode.Create));
+                        }
+                        catch (Exception)
+                        {
+                            ViewBag.CopyError = "Κατι πήγε λάθος στην μεταφορά του αρχείου.Προσπαθήστε ξανά";
+                            return View(offer);
 
-                        offer.FileName.CopyTo(new FileStream(filePath, FileMode.Create));
+                        }
 
                     }
                     else
@@ -312,7 +332,7 @@ namespace Offers.Controllers
                 if (offer.AdditionalFileName != null)
                 {
                     //copy file to Attachments folder
-                    string uploadsFolder = Path.Combine(_hostEnvironment.WebRootPath, "Files" + "\\" + folderName);
+                  
                     extraFileName =/* Guid.NewGuid().ToString() + "_" +*/ offer.AdditionalFileName.FileName;
                     string filePath = Path.Combine(uploadsFolder, extraFileName);
 
@@ -343,7 +363,7 @@ namespace Offers.Controllers
                 else
                 {
 
-                    uniqueFileName = "no extra attachement";
+                    extraFileName = "no extra attachement";
                 }
 
 
