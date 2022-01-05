@@ -2367,7 +2367,9 @@ C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Edit
 C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Dromologia\Index.cshtml.g.cs
 C:\Users\Thodoris\source\Git\Offers\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
 C:\Users\Thodoris\source\Git\Offers\bin\Debug\net5.0\System.IO.Packaging.dll
+C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Razor\Views\Home\ReadAllFilesFromDirectory.cshtml.g.cs
 C:\Users\Thodoris\source\Git\Offers\obj\Debug\net5.0\Offers.csproj.AssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\tkane\source\Git\Offers\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\tkane\source\Git\Offers\bin\Debug\net5.0\appsettings.json
 C:\Users\tkane\source\Git\Offers\bin\Debug\net5.0\Offers.StaticWebAssets.xml
@@ -3344,3 +3346,5 @@ C:\Users\AKHS\source\Git\Offers\obj\Debug\net5.0\ref\Offers.dll
 C:\Users\AKHS\source\Git\Offers\obj\Debug\net5.0\Offers.pdb
 C:\Users\AKHS\source\Git\Offers\obj\Debug\net5.0\Offers.genruntimeconfig.cache
 C:\Users\AKHS\source\Git\Offers\obj\Debug\net5.0\Offers.csproj.AssemblyReference.cache
+=======
+>>>>>>> 62c7fc1ab53e7efd34a9f3b181a7139f5876fffa
