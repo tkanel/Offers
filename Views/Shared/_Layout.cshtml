@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - Offers</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">
+
 </head>
 <body>
     <header>
@@ -19,28 +22,28 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">#Aρχική</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> Aρχική</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Offers" asp-action="Index">#Προσφορές</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Companies" asp-action="Index">#Εταιρίες</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ΟfferUsers" asp-action="Index">#Χρήστες</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Years" asp-action="Index">#Ετη</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Offers" asp-action="Index"><i class="fas fa-address-book"></i> Προσφορές</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Dromologia" asp-action="Index">#Δρομολόγια</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Companies" asp-action="Index"><i class="fas fa-building"></i> Εταιρίες</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ΟfferUsers" asp-action="Index"><i class="fas fa-user-tie"></i> Χρήστες</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Years" asp-action="Index"><i class="fas fa-calendar-times"></i> Ετη</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Offers" asp-action="BuildAnOffer">#Χτίσιμο προσφοράς</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Dromologia" asp-action="Index"><i class="fas fa-route"></i> Δρομολόγια</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Offers" asp-action="BuildAnOffer"><i class="fas fa-calculator"></i> Χτίσιμο προσφοράς</a>
                         </li>
 
                     </ul>

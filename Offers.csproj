@@ -20,7 +20,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\Files\2021\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 </Project>
